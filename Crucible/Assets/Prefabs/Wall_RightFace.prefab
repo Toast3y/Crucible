@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 425008}
   - 212: {fileID: 21263114}
   - 114: {fileID: 11462686}
+  - 114: {fileID: 11432266}
   m_Layer: 0
   m_Name: Wall_RightFace
   m_TagString: Untagged
@@ -29,6 +30,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11432266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3dbd31462416734998339ad1591922a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPassable: 0
+  isRevealed: 0
 --- !u!114 &11462686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -42,6 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightSprite: {fileID: 21300000, guid: 69c7f5d098ebd3d4b97ab8f9b3ba92d4, type: 3}
   darkSprite: {fileID: 21300000, guid: cc0ba045e2587684fabb60e870c86d03, type: 3}
+  unrevealedSprite: {fileID: 21300000, guid: 28a665f81ec639242a87a0fb45ee6d9a, type: 3}
   torchDistance: 1.5
 --- !u!212 &21263114
 SpriteRenderer:
@@ -79,7 +94,12 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: unrevealedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 28a665f81ec639242a87a0fb45ee6d9a,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 140520}

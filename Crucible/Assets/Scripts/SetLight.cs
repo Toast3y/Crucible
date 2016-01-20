@@ -6,6 +6,7 @@ public class SetLight : MonoBehaviour {
 	private GameObject mainChar;
 	public Sprite lightSprite;
 	public Sprite darkSprite;
+	public Sprite unrevealedSprite;
 	public float torchDistance;
 
 	private bool lit;
@@ -15,6 +16,7 @@ public class SetLight : MonoBehaviour {
 		lit = false;
 		mainChar = GameObject.FindGameObjectWithTag("Player");
 		torchDistance = mainChar.GetComponent<TorchValue>().torchRange;
+		this.gameObject.GetComponent<SpriteRenderer>().sprite = unrevealedSprite;
 	}
 	
 	// Update is called once per frame
@@ -34,6 +36,7 @@ public class SetLight : MonoBehaviour {
 
 	void LightUp() {
 		this.gameObject.GetComponent<SpriteRenderer>().sprite = lightSprite;
+		this.gameObject.GetComponent<FloorProperties>().isRevealed = true;
 		lit = true;
 	}
 

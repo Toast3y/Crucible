@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 428820}
   - 212: {fileID: 21285524}
   - 114: {fileID: 11489268}
+  - 114: {fileID: 11405020}
   m_Layer: 0
   m_Name: Wall_Corner_TopLeft_Dark
   m_TagString: Untagged
@@ -29,6 +30,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11405020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3dbd31462416734998339ad1591922a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPassable: 0
+  isRevealed: 0
 --- !u!114 &11489268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -42,6 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightSprite: {fileID: 21300000, guid: 52842aab6e344444b9c0378194d76ba9, type: 3}
   darkSprite: {fileID: 21300000, guid: c69b0a5040c9f5c4b9ef0cb005e33974, type: 3}
+  unrevealedSprite: {fileID: 21300000, guid: 28a665f81ec639242a87a0fb45ee6d9a, type: 3}
   torchDistance: 1.5
 --- !u!212 &21285524
 SpriteRenderer:
@@ -84,6 +99,11 @@ Prefab:
       propertyPath: m_Name
       value: Wall_Corner_TopLeft
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: unrevealedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 28a665f81ec639242a87a0fb45ee6d9a,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150574}

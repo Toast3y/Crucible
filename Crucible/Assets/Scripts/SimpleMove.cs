@@ -57,6 +57,10 @@ public class SimpleMove : MonoBehaviour {
 		newPos.x++;
 	}
 
+	void CheckArea() {
+		//Check to see if the area to be entered is a wall.
+
+	}
 
 	//Bump the player back if they collide with a wall
 	//Set newPos to original position, the lerp back should handle everything else.
