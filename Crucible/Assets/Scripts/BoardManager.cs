@@ -3,7 +3,11 @@ using System.Collections.Generic;
 
 public class BoardManager : MonoBehaviour {
 
-	public List<GameObject> floorTiles = new List<GameObject>();
+	public int MAP_WIDTH = 100;
+	public int MAP_HEIGHT = 60;
+
+
+	
 	public List<GameObject> wallTiles = new List<GameObject>();
 	public List<GameObject> characterList = new List<GameObject>();
 
