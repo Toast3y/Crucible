@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 491210}
   - 212: {fileID: 21207062}
   - 114: {fileID: 11404440}
-  - 114: {fileID: 11437694}
+  - 114: {fileID: 11487260}
   m_Layer: 0
   m_Name: Wall_BottomFace
   m_TagString: Untagged
@@ -45,7 +45,7 @@ MonoBehaviour:
   darkSprite: {fileID: 21300000, guid: 16804d99f5e53bd469e48f948ab89e66, type: 3}
   unrevealedSprite: {fileID: 21300000, guid: 28a665f81ec639242a87a0fb45ee6d9a, type: 3}
   torchDistance: 1.5
---- !u!114 &11437694
+--- !u!114 &11487260
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -53,10 +53,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 139444}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3dbd31462416734998339ad1591922a, type: 3}
+  m_Script: {fileID: 11500000, guid: 62582c32979827b419903802cea970a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPassable: 0
+  isRevealed: 0
 --- !u!212 &21207062
 SpriteRenderer:
   m_ObjectHideFlags: 1

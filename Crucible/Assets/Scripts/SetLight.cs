@@ -36,7 +36,7 @@ public class SetLight : MonoBehaviour {
 
 	void LightUp() {
 		this.gameObject.GetComponent<SpriteRenderer>().sprite = lightSprite;
-		this.gameObject.GetComponent<FloorProperties>().isRevealed = true;
+		this.gameObject.GetComponent<Properties>().SetIsRevealed(true);
 		lit = true;
 	}
 

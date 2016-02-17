@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FloorProperties : MonoBehaviour {
+public class Properties : MonoBehaviour {
 	//Script to control map triggers and behaviours for various characters.
 
 
@@ -9,14 +9,16 @@ public class FloorProperties : MonoBehaviour {
 	public bool isRevealed;
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
 		isRevealed = false;
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
-	
+	void Update() {
+
 	}
+
+
 
 	public bool GetIsPassable() {
 		return isPassable;
@@ -26,6 +28,8 @@ public class FloorProperties : MonoBehaviour {
 		isPassable = IsPassable;
 	}
 
+
+
 	public bool GetIsRevealed() {
 		return isRevealed;
 	}
@@ -33,4 +37,5 @@ public class FloorProperties : MonoBehaviour {
 	public void SetIsRevealed(bool IsRevealed) {
 		isRevealed = IsRevealed;
 	}
+
 }

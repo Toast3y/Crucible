@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 491396}
   - 212: {fileID: 21257456}
   - 114: {fileID: 11451162}
-  - 114: {fileID: 11447034}
+  - 114: {fileID: 11400436}
   m_Layer: 0
   m_Name: Wall_Corner_BottomRight_Dark
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11447034
+--- !u!114 &11400436
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -38,7 +38,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 173450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3dbd31462416734998339ad1591922a, type: 3}
+  m_Script: {fileID: 11500000, guid: 62582c32979827b419903802cea970a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isPassable: 0
