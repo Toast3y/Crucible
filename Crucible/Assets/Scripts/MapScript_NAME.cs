@@ -64,7 +64,8 @@ public class MapScript_NAME : MonoBehaviour {
 		//Create a simple room, that's the size of the map
 		for (int x = 0; x < mapWidth; x++) {
 			for (int y = 0; y < mapHeight; y++) {
-				GameObject.Instantiate(floor1, new Vector3(x, y, 0), Quaternion.identity);
+				var newfloor = (GameObject) GameObject.Instantiate(floor1, new Vector3(x, y, 0), Quaternion.identity);
+				gameObject.GetComponent<BoardManager>().map[x, y] = newfloor;
 			}
 		}
 	}

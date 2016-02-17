@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 public class BoardManager : MonoBehaviour {
 
-	public int MAP_WIDTH = 100;
-	public int MAP_HEIGHT = 60;
+	public static int MAP_WIDTH = 100;
+	public static int MAP_HEIGHT = 60;
 
 	
 
-	public List<GameObject> map = new List<GameObject>();
+	public GameObject[,] map = new GameObject[MAP_WIDTH, MAP_HEIGHT];
 	
 	public List<GameObject> wallTiles = new List<GameObject>();
 	public List<GameObject> characterList = new List<GameObject>();

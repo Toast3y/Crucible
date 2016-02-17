@@ -21,7 +21,7 @@ public class OnClickMenu : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
-			if (hit.collider != null && hit.collider.gameObject.GetComponent<FloorProperties>().isRevealed == true && menuOpen == false) {
+			if (hit.collider != null && hit.collider.gameObject.GetComponent<Properties>().isRevealed == true && menuOpen == false) {
 				//Debug.Log("Object Hit: ", GameObject.Find(hit.collider.gameObject.name));
 				canvas.SetActive(true);
 				menuOpen = true;
