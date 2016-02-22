@@ -19,16 +19,20 @@ public class SimpleMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown("up")) {
+		if (Input.GetKeyDown("up") && Camera.main.GetComponent<OnClickMenu>().GetMenuOpen() == false) {
+			Camera.main.GetComponent<CameraFocus>().SetFocus(this.gameObject);
 			MoveUp();
 		}
-		else if (Input.GetKeyDown("down")) {
+		else if (Input.GetKeyDown("down") && Camera.main.GetComponent<OnClickMenu>().GetMenuOpen() == false) {
+			Camera.main.GetComponent<CameraFocus>().SetFocus(this.gameObject);
 			MoveDown();
 		}
-		else if (Input.GetKeyDown("left")) {
+		else if (Input.GetKeyDown("left") && Camera.main.GetComponent<OnClickMenu>().GetMenuOpen() == false) {
+			Camera.main.GetComponent<CameraFocus>().SetFocus(this.gameObject);
 			MoveLeft();
 		}
-		else if (Input.GetKeyDown("right")) {
+		else if (Input.GetKeyDown("right") && Camera.main.GetComponent<OnClickMenu>().GetMenuOpen() == false) {
+			Camera.main.GetComponent<CameraFocus>().SetFocus(this.gameObject);
 			MoveRight();
 		}
 
@@ -60,14 +64,5 @@ public class SimpleMove : MonoBehaviour {
 	void CheckArea() {
 		//Check to see if the area to be entered is a wall.
 
-	}
-
-	//Bump the player back if they collide with a wall
-	//Set newPos to original position, the lerp back should handle everything else.
-	void OnCollisionEnter(Collision col) {
-
-		if (col.gameObject.tag == "Wall") {
-			newPos = oldPos;
-		}
 	}
 }

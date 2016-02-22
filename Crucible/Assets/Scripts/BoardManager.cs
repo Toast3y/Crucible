@@ -6,9 +6,12 @@ public class BoardManager : MonoBehaviour {
 	public static int MAP_WIDTH = 100;
 	public static int MAP_HEIGHT = 60;
 
+	public int MAX_ROOMS = 25;
+
 	
 
 	public GameObject[,] map = new GameObject[MAP_WIDTH, MAP_HEIGHT];
+	public List<Assets.Scripts.Room> rooms = new List<Assets.Scripts.Room>();
 	
 	public List<GameObject> wallTiles = new List<GameObject>();
 	public List<GameObject> characterList = new List<GameObject>();
@@ -18,7 +21,7 @@ public class BoardManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		mapScript = gameObject.GetComponent<MapScript_NAME>();
-		mapScript.GenerateMap(MAP_WIDTH, MAP_HEIGHT);
+		mapScript.GenerateMap(MAP_WIDTH, MAP_HEIGHT, MAX_ROOMS);
 	}
 	
 	// Update is called once per frame

@@ -35,4 +35,8 @@ public class OnClickMenu : MonoBehaviour {
 		menuOpen = false;
 		canvas.SetActive(false);
 	}
+
+	public bool GetMenuOpen() {
+		return menuOpen;
+	}
 }
