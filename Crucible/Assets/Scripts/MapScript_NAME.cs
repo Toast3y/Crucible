@@ -134,8 +134,9 @@ public class MapScript_NAME : MonoBehaviour {
 
 				//Check if the square has a map tile with nothing above it.
 				if (gameObject.GetComponent<BoardManager>().map[x, y] != null) {
-					//Create wall face
 
+
+					//Create wall face
 					if(y + 1 == mapHeight){
 						//Automatically create the tile, because the array check would cause an out of bounds error
 						//The wall should be created anyway, so this shouldn't be a problem
@@ -147,8 +148,10 @@ public class MapScript_NAME : MonoBehaviour {
 						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
 					}
 
+
+					/*
 					//Left Wall
-					if(x - 1 == mapWidth){
+					if(x - 1 == -1){
 						//Automatically create the tile, because the array check would cause an out of bounds error
 						//The wall should be created anyway, so this shouldn't be a problem
 						var newWall = (GameObject)GameObject.Instantiate(wall_Left, new Vector3(x - 1, y, 0), Quaternion.identity);
@@ -156,6 +159,30 @@ public class MapScript_NAME : MonoBehaviour {
 					}
 					else if (gameObject.GetComponent<BoardManager>().map[x - 1, y] == null) {
 						var newWall = (GameObject)GameObject.Instantiate(wall_Left, new Vector3(x - 1, y, 0), Quaternion.identity);
+						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
+					}
+
+
+
+					//Right Wall
+					if (x + 1 == mapWidth) {
+						var newWall = (GameObject)GameObject.Instantiate(wall_Right, new Vector3(x + 1, y, 0), Quaternion.identity);
+						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
+					}
+					else if (gameObject.GetComponent<BoardManager>().map[x + 1, y] == null) {
+						var newWall = (GameObject)GameObject.Instantiate(wall_Right, new Vector3(x + 1, y, 0), Quaternion.identity);
+						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
+					}
+					*/
+
+
+					//Bottom Wall
+					if (y - 1 == -1) {
+						var newWall = (GameObject)GameObject.Instantiate(wall_Down, new Vector3(x, y-1, 0), Quaternion.identity);
+						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
+					}
+					else if (gameObject.GetComponent<BoardManager>().map[x, y - 1] == null) {
+						var newWall = (GameObject)GameObject.Instantiate(wall_Down, new Vector3(x, y-1, 0), Quaternion.identity);
 						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
 					}
 				}

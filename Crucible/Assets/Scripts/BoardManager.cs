@@ -31,7 +31,10 @@ public class BoardManager : MonoBehaviour {
 	}
 
 	public bool ValidateMove(int x, int y) {
-		if (map[x, y] == null) {
+		if (x < 0 || y < 0 || x >= MAP_WIDTH || y >= MAP_HEIGHT) {
+			return false;
+		}
+		else if (map[x, y] == null) {
 			return false;
 		}
 		else {
