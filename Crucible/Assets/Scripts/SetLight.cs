@@ -21,16 +21,19 @@ public class SetLight : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		try {
+			float distance = Vector3.Distance(mainChar.transform.position, transform.position);
 
-		float distance = Vector3.Distance(mainChar.transform.position, transform.position);
-
-		if (distance < torchDistance && lit == false) {
-			LightUp();
+			if (distance < torchDistance && lit == false) {
+				LightUp();
+			}
+			else if (distance > torchDistance && lit == true) {
+				GoDark();
+			}
 		}
-		else if (distance > torchDistance && lit == true){
-			GoDark();
+		catch {
+			mainChar = GameObject.FindGameObjectWithTag("Player");
 		}
-	
 	}
 
 

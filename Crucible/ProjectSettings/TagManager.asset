@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - UI_Button
+  - Board
   layers:
   - Default
   - TransparentFX

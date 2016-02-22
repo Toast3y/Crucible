@@ -8,6 +8,7 @@ public class SimpleMove : MonoBehaviour {
 	public float lerpSpeed = 10.0f;
 
 	private GameObject attached;
+	private GameObject boardManager;
 	private Vector2 newPos;
 	private Vector2 oldPos;
 
@@ -15,6 +16,7 @@ public class SimpleMove : MonoBehaviour {
 	void Start () {
 		attached = this.gameObject;
 		newPos = attached.transform.position;
+		boardManager = GameObject.FindGameObjectWithTag("Board");
 	}
 	
 	// Update is called once per frame
@@ -42,23 +44,43 @@ public class SimpleMove : MonoBehaviour {
 
 
 	void MoveUp() {
-		oldPos = newPos;
-		newPos.y++;
+		if (boardManager.GetComponent<BoardManager>().ValidateMove((int)newPos.x, (int)newPos.y + 1) == false) {
+			//Restrict movement to tiles
+		}
+		else {
+			oldPos = newPos;
+			newPos.y++;
+		}
 	}
 
 	void MoveDown() {
-		oldPos = newPos;
-		newPos.y--;
+		if (boardManager.GetComponent<BoardManager>().ValidateMove((int)newPos.x, (int)newPos.y - 1) == false) {
+			//Restrict movement to tiles
+		}
+		else {
+			oldPos = newPos;
+			newPos.y--;
+		}
 	}
 
 	void MoveLeft() {
-		oldPos = newPos;
-		newPos.x--;
+		if (boardManager.GetComponent<BoardManager>().ValidateMove((int)newPos.x - 1, (int)newPos.y) == false) {
+			//Restrict movement to tiles
+		}
+		else {
+			oldPos = newPos;
+			newPos.x--;
+		}
 	}
 
 	void MoveRight() {
-		oldPos = newPos;
-		newPos.x++;
+		if (boardManager.GetComponent<BoardManager>().ValidateMove((int)newPos.x + 1, (int)newPos.y) == false) {
+			//Restrict movement to tiles
+		}
+		else {
+			oldPos = newPos;
+			newPos.x++;
+		}
 	}
 
 	void CheckArea() {

@@ -18,7 +18,11 @@ namespace Assets.Scripts {
 			width = Width;
 			height = Height;
 
-			//centre = new Vector2((),())
+			centre = new Vector2(Mathf.Round((startPos.x + (startPos.x + width)) / 2), Mathf.Round((startPos.y + (startPos.y + height))/2));
+		}
+
+		public Vector2 GetCentre() {
+			return centre;
 		}
 	}
 }
