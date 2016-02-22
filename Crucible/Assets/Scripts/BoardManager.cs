@@ -22,6 +22,7 @@ public class BoardManager : MonoBehaviour {
 	void Start () {
 		mapScript = gameObject.GetComponent<MapScript_NAME>();
 		mapScript.GenerateMap(MAP_WIDTH, MAP_HEIGHT, MAX_ROOMS);
+		mapScript.GenerateWalls(MAP_WIDTH, MAP_HEIGHT);
 	}
 	
 	// Update is called once per frame
