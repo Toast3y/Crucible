@@ -21,20 +21,11 @@ public class MapScript_NAME : MonoBehaviour {
 	public GameObject wall_Down;
 	public GameObject wall_Face;
 	//Corner pieces used to mark the inside corners of rooms
-	[Header("Inside Corner Objects")]
+	[Header("Corner Objects")]
 	public GameObject corner_InsideBottomLeft;
 	public GameObject corner_InsideBottomRight;
-	[Header("Outside Corner Objects")]
-	public GameObject corner_OutsideTopLeft;
-	public GameObject corner_OutsideTopRight;
-	public GameObject corner_OutsideBottomLeft;
-	public GameObject corner_OutsideBottomRight;
-
-	//Corner pieces used to make the outside corners adjoining corridors for rooms
-	/*public GameObject corner_OutsideTopLeft;
-	public GameObject corner_OutsideTopRight;
-	public GameObject corner_OutsideBottomLeft;
-	public GameObject corner_OutsideBottomRight;*/
+	public GameObject corner_InsideTopLeft;
+	public GameObject corner_InsideTopRight;
 
 
 
@@ -149,7 +140,7 @@ public class MapScript_NAME : MonoBehaviour {
 					}
 
 
-					/*
+					
 					//Left Wall
 					if(x - 1 == -1){
 						//Automatically create the tile, because the array check would cause an out of bounds error
@@ -173,7 +164,7 @@ public class MapScript_NAME : MonoBehaviour {
 						var newWall = (GameObject)GameObject.Instantiate(wall_Right, new Vector3(x + 1, y, 0), Quaternion.identity);
 						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
 					}
-					*/
+					
 
 
 					//Bottom Wall
@@ -185,6 +176,22 @@ public class MapScript_NAME : MonoBehaviour {
 						var newWall = (GameObject)GameObject.Instantiate(wall_Down, new Vector3(x, y-1, 0), Quaternion.identity);
 						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
 					}
+
+
+
+					//Corner cases
+
+					//Bottom Left
+					/*
+					if (x - 1 == -1 && y - 1 == -1) {
+						var newWall = (GameObject)GameObject.Instantiate(corner_InsideBottomLeft, new Vector3(x - 1, y - 1, 0), Quaternion.identity);
+						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
+					}
+					else if (gameObject.GetComponent<BoardManager>().map[x - 1, y - 1] == null) {
+						var newWall = (GameObject)GameObject.Instantiate(corner_InsideBottomLeft, new Vector3(x - 1, y - 1, 0), Quaternion.identity);
+						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
+					}*/
+
 				}
 
 
