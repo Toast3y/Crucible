@@ -182,16 +182,64 @@ public class MapScript_NAME : MonoBehaviour {
 					//Corner cases
 
 					//Bottom Left
-					/*
 					if (x - 1 == -1 && y - 1 == -1) {
 						var newWall = (GameObject)GameObject.Instantiate(corner_InsideBottomLeft, new Vector3(x - 1, y - 1, 0), Quaternion.identity);
 						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
 					}
+					else if (x - 1 == -1) {
+						//Do nothing, as a tile that was already made should cover the system
+						var newWall = (GameObject)GameObject.Instantiate(corner_InsideBottomLeft, new Vector3(x - 1, y - 1, 0), Quaternion.identity);
+						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
+					}
+					else if (y - 1 == -1) {
+						//Do nothing
+					}
 					else if (gameObject.GetComponent<BoardManager>().map[x - 1, y - 1] == null) {
 						var newWall = (GameObject)GameObject.Instantiate(corner_InsideBottomLeft, new Vector3(x - 1, y - 1, 0), Quaternion.identity);
 						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
-					}*/
+					}
 
+
+					//Top Right
+					if (y + 1 == mapHeight && x + 1 == mapWidth) {
+						var newWall = (GameObject)GameObject.Instantiate(corner_InsideTopRight, new Vector3(x + 1, y + 1, 0), Quaternion.identity);
+						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
+					}
+					else if (y + 1 == mapHeight || x + 1 == mapWidth) {
+						//Do nothing, as a tile that was already made should cover the system
+					}
+					else if (gameObject.GetComponent<BoardManager>().map[x + 1, y + 1] == null) {
+						var newWall = (GameObject)GameObject.Instantiate(corner_InsideTopRight, new Vector3(x + 1, y + 1, 0), Quaternion.identity);
+						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
+					}
+
+
+					//Bottom Right
+					if (y - 1 == -1 && x + 1 == mapWidth) {
+						var newWall = (GameObject)GameObject.Instantiate(corner_InsideBottomRight, new Vector3(x + 1, y - 1, 0), Quaternion.identity);
+						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
+					}
+					else if (y - 1 == -1 || x + 1 == mapWidth) {
+						//Do nothing, as a tile that was already made should cover the system
+					}
+					else if (gameObject.GetComponent<BoardManager>().map[x + 1, y - 1] == null) {
+						var newWall = (GameObject)GameObject.Instantiate(corner_InsideBottomRight, new Vector3(x + 1, y - 1, 0), Quaternion.identity);
+						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
+					}
+
+					//Top Left
+					//Bottom Right
+					if (y + 1 == mapHeight && x - 1 == -1) {
+						var newWall = (GameObject)GameObject.Instantiate(corner_InsideTopLeft, new Vector3(x - 1, y + 1, 0), Quaternion.identity);
+						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
+					}
+					else if (y + 1 == mapHeight || x - 1 == -1) {
+						//Do nothing, as a tile that was already made should cover the system
+					}
+					else if (gameObject.GetComponent<BoardManager>().map[x - 1, y + 1] == null) {
+						var newWall = (GameObject)GameObject.Instantiate(corner_InsideTopLeft, new Vector3(x - 1, y + 1, 0), Quaternion.identity);
+						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
+					}
 				}
 
 

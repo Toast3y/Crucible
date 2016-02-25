@@ -246,10 +246,9 @@ MonoBehaviour:
     type: 2}
   corner_InsideBottomRight: {fileID: 173450, guid: de6f182469ad56c4eabe64becf24598b,
     type: 2}
-  corner_OutsideTopLeft: {fileID: 0}
-  corner_OutsideTopRight: {fileID: 0}
-  corner_OutsideBottomLeft: {fileID: 0}
-  corner_OutsideBottomRight: {fileID: 0}
+  corner_InsideTopLeft: {fileID: 199408, guid: 7ec803752d065be459bcd487a098a1a4, type: 2}
+  corner_InsideTopRight: {fileID: 140520, guid: 9fefb4cf79a32a44181a16582b714cd9,
+    type: 2}
 --- !u!1 &1751954581
 GameObject:
   m_ObjectHideFlags: 0
