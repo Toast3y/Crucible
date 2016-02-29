@@ -9,11 +9,11 @@ public class CameraFocus : MonoBehaviour {
 	public GameObject cameraFocus;
 	public float lerpSpeed = 15.0f;
 
-	private bool cameraIsFocused;
+	//private bool cameraIsFocused;
 
 	// Use this for initialization
 	void Start () {
-		cameraIsFocused = false;
+		//cameraIsFocused = false;
 	}
 	
 	// Update is called once per frame
@@ -23,11 +23,11 @@ public class CameraFocus : MonoBehaviour {
 
 	public void SetFocus(GameObject gameObject) {
 		cameraFocus = gameObject;
-		cameraIsFocused = true;
+		//cameraIsFocused = true;
 	}
 
 	public void UnFocus() {
 		cameraFocus = null;
-		cameraIsFocused = false;
+		//cameraIsFocused = false;
 	}
 }

@@ -26,6 +26,8 @@ public class MapScript_NAME : MonoBehaviour {
 	public GameObject corner_InsideBottomRight;
 	public GameObject corner_InsideTopLeft;
 	public GameObject corner_InsideTopRight;
+	[Header("Decorations")]
+	public GameObject door;
 
 
 
@@ -96,7 +98,12 @@ public class MapScript_NAME : MonoBehaviour {
 			//Generate a corridor from the last room to the new one
 			if (i == 0) {
 				var protagonist = (GameObject)GameObject.Instantiate(character, (Vector3)newRoom.GetCentre(), Quaternion.identity);
+				gameObject.GetComponent<BoardManager>().characterList.Add(protagonist);
 				Camera.main.GetComponent<CameraFocus>().SetFocus(protagonist);
+
+				//TEMPORARY, Spawn a door beside the character
+				var newdoor = (GameObject)GameObject.Instantiate(door, new Vector3(protagonist.transform.position.x - 2, protagonist.transform.position.y, protagonist.transform.position.z), Quaternion.identity);
+				gameObject.GetComponent<BoardManager>().objectList.Add(newdoor);
 			}
 			else {
 				switch(Random.Range(0, 2)){
@@ -186,13 +193,10 @@ public class MapScript_NAME : MonoBehaviour {
 						var newWall = (GameObject)GameObject.Instantiate(corner_InsideBottomLeft, new Vector3(x - 1, y - 1, 0), Quaternion.identity);
 						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
 					}
-					else if (x - 1 == -1) {
+					else if (x - 1 == -1 || y - 1 == -1) {
 						//Do nothing, as a tile that was already made should cover the system
 						var newWall = (GameObject)GameObject.Instantiate(corner_InsideBottomLeft, new Vector3(x - 1, y - 1, 0), Quaternion.identity);
 						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
-					}
-					else if (y - 1 == -1) {
-						//Do nothing
 					}
 					else if (gameObject.GetComponent<BoardManager>().map[x - 1, y - 1] == null) {
 						var newWall = (GameObject)GameObject.Instantiate(corner_InsideBottomLeft, new Vector3(x - 1, y - 1, 0), Quaternion.identity);
@@ -207,6 +211,8 @@ public class MapScript_NAME : MonoBehaviour {
 					}
 					else if (y + 1 == mapHeight || x + 1 == mapWidth) {
 						//Do nothing, as a tile that was already made should cover the system
+						var newWall = (GameObject)GameObject.Instantiate(corner_InsideTopRight, new Vector3(x + 1, y + 1, 0), Quaternion.identity);
+						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
 					}
 					else if (gameObject.GetComponent<BoardManager>().map[x + 1, y + 1] == null) {
 						var newWall = (GameObject)GameObject.Instantiate(corner_InsideTopRight, new Vector3(x + 1, y + 1, 0), Quaternion.identity);
@@ -221,6 +227,8 @@ public class MapScript_NAME : MonoBehaviour {
 					}
 					else if (y - 1 == -1 || x + 1 == mapWidth) {
 						//Do nothing, as a tile that was already made should cover the system
+						var newWall = (GameObject)GameObject.Instantiate(corner_InsideBottomRight, new Vector3(x + 1, y - 1, 0), Quaternion.identity);
+						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
 					}
 					else if (gameObject.GetComponent<BoardManager>().map[x + 1, y - 1] == null) {
 						var newWall = (GameObject)GameObject.Instantiate(corner_InsideBottomRight, new Vector3(x + 1, y - 1, 0), Quaternion.identity);
@@ -228,13 +236,14 @@ public class MapScript_NAME : MonoBehaviour {
 					}
 
 					//Top Left
-					//Bottom Right
 					if (y + 1 == mapHeight && x - 1 == -1) {
 						var newWall = (GameObject)GameObject.Instantiate(corner_InsideTopLeft, new Vector3(x - 1, y + 1, 0), Quaternion.identity);
 						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
 					}
 					else if (y + 1 == mapHeight || x - 1 == -1) {
 						//Do nothing, as a tile that was already made should cover the system
+						var newWall = (GameObject)GameObject.Instantiate(corner_InsideTopLeft, new Vector3(x - 1, y + 1, 0), Quaternion.identity);
+						gameObject.GetComponent<BoardManager>().wallTiles.Add(newWall);
 					}
 					else if (gameObject.GetComponent<BoardManager>().map[x - 1, y + 1] == null) {
 						var newWall = (GameObject)GameObject.Instantiate(corner_InsideTopLeft, new Vector3(x - 1, y + 1, 0), Quaternion.identity);

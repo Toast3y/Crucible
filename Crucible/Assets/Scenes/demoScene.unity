@@ -89,6 +89,17 @@ NavMeshSettings:
 GameObject:
   m_PrefabParentObject: {fileID: 159306, guid: 1d84548fd8e16444b95e2560cd188749, type: 2}
   m_PrefabInternal: {fileID: 1036698222}
+--- !u!114 &193170211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 193170210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda68c7c91d1afa42b079c71f52f4f6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1036698222
 Prefab:
   m_ObjectHideFlags: 0
@@ -126,7 +137,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22472608, guid: 1d84548fd8e16444b95e2560cd188749, type: 2}
       propertyPath: m_RootOrder
-      value: 19
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 22472608, guid: 1d84548fd8e16444b95e2560cd188749, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -176,6 +187,14 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1751954590}
+    - target: {fileID: 159306, guid: 1d84548fd8e16444b95e2560cd188749, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 178380, guid: 1d84548fd8e16444b95e2560cd188749, type: 2}
+      propertyPath: m_Name
+      value: Cancel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d84548fd8e16444b95e2560cd188749, type: 2}
   m_IsPrefabParent: 0
@@ -221,6 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallTiles: []
   characterList: []
+  objectList: []
 --- !u!114 &1219059209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +269,7 @@ MonoBehaviour:
   corner_InsideTopLeft: {fileID: 199408, guid: 7ec803752d065be459bcd487a098a1a4, type: 2}
   corner_InsideTopRight: {fileID: 140520, guid: 9fefb4cf79a32a44181a16582b714cd9,
     type: 2}
+  door: {fileID: 133576, guid: 2d6c8df12aea3094fb802658e144f76d, type: 2}
 --- !u!1 &1751954581
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +508,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_ForceModuleActive: 1
 --- !u!114 &2107329111
 MonoBehaviour:
   m_ObjectHideFlags: 0
