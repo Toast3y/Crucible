@@ -18,7 +18,11 @@ public class CameraFocus : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, new Vector3 (cameraFocus.transform.position.x, cameraFocus.transform.position.y, Camera.main.transform.position.z), lerpSpeed * Time.deltaTime);
+		if (cameraFocus == null) {
+		}
+		else {
+			Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, new Vector3(cameraFocus.transform.position.x, cameraFocus.transform.position.y, Camera.main.transform.position.z), lerpSpeed * Time.deltaTime);
+		}
 	}
 
 	public void SetFocus(GameObject gameObject) {

@@ -308,6 +308,7 @@ MonoBehaviour:
   lowerBound: {x: 0, y: 0}
   upperHeightBound: 0
   lowerHeightBound: 0
+  panSpeed: 0.4
 --- !u!81 &1751954583
 AudioListener:
   m_ObjectHideFlags: 0
