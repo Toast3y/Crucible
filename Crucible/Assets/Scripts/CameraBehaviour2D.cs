@@ -25,10 +25,14 @@ public class CameraBehaviour2D : MonoBehaviour {
 	//lowerHeightBound is the closest distance possible.
 	public float upperHeightBound;
 	public float lowerHeightBound;
+	private float zoomLevel;
 
 	// Use this for initialization
 	void Start () {
 		//Use this space on initialization to receive any specific camera boundary requirements from a Game Manager or Game World object.
+		upperHeightBound = 8.0f;
+		lowerHeightBound = 3.0f;
+		zoomLevel = Camera.main.orthographicSize;
 	}
 	
 	// Update is called once per frame
@@ -40,15 +44,19 @@ public class CameraBehaviour2D : MonoBehaviour {
 		
 		/*Height camera controller to determine the zoom level of the camera.
 		 *
-		 *If the 
+		 *If the mouse wheel is scrolled, move the camera in or out.
 		 */
-		if (Input.GetAxis("Mouse ScrollWheel") > 0) {
+		if (Input.GetAxis("Mouse ScrollWheel") < 0 && zoomLevel < upperHeightBound) {
 			//Moves the camera further away.
+			zoomLevel++;
 		}
 
-		if (Input.GetAxis("Mouse ScrollWheel") < 0) {
+		if (Input.GetAxis("Mouse ScrollWheel") > 0 && zoomLevel > lowerHeightBound) {
 			//Moves the camera closer.
+			zoomLevel--;
 		}
+
+		Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomLevel, 10.0f * Time.deltaTime);
 
 	}
 }
