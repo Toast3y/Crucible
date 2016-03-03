@@ -12,4 +12,9 @@ public class GenerateMenu : MonoBehaviour {
 	void Update () {
 	
 	}
+
+
+	public void DetermineLayout() {
+
+	}
 }
