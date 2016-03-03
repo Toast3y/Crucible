@@ -10,7 +10,6 @@ public class SimpleMove : MonoBehaviour {
 	private GameObject attached;
 	private GameObject boardManager;
 	private Vector2 newPos;
-	private Vector2 oldPos;
 
 	// Use this for initialization
 	void Start () {
@@ -48,7 +47,6 @@ public class SimpleMove : MonoBehaviour {
 			//Restrict movement to tiles
 		}
 		else {
-			oldPos = newPos;
 			newPos.y++;
 		}
 	}
@@ -58,7 +56,6 @@ public class SimpleMove : MonoBehaviour {
 			//Restrict movement to tiles
 		}
 		else {
-			oldPos = newPos;
 			newPos.y--;
 		}
 	}
@@ -68,7 +65,6 @@ public class SimpleMove : MonoBehaviour {
 			//Restrict movement to tiles
 		}
 		else {
-			oldPos = newPos;
 			newPos.x--;
 		}
 	}
@@ -78,13 +74,8 @@ public class SimpleMove : MonoBehaviour {
 			//Restrict movement to tiles
 		}
 		else {
-			oldPos = newPos;
 			newPos.x++;
 		}
 	}
 
-	void CheckArea() {
-		//Check to see if the area to be entered is a wall.
-
-	}
 }
