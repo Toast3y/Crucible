@@ -34,4 +34,8 @@ public class CameraFocus : MonoBehaviour {
 		cameraFocus = null;
 		//cameraIsFocused = false;
 	}
+
+	//public void SetFocus_OnClickMenu(GameObject gameObject) {
+		//Set the camera focus correctly when the menu is created
+	//}
 }

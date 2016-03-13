@@ -26,7 +26,7 @@ public class CameraBehaviour2D : MonoBehaviour {
 	public float upperHeightBound;
 	public float lowerHeightBound;
 	public float panSpeed;
-	private float zoomLevel;
+	public float zoomLevel;
 
 	// Use this for initialization
 	void Start () {

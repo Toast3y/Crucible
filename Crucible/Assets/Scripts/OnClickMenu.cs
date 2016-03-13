@@ -5,6 +5,7 @@ public class OnClickMenu : MonoBehaviour {
 
 	//Detects behaviour for calling up the On Click Canvas menu in game
 	public GameObject canvas;
+	public float zoomThreshold;
 
 	private bool menuOpen;
 
@@ -22,10 +23,20 @@ public class OnClickMenu : MonoBehaviour {
 			RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
 			if (hit.collider != null && hit.collider.gameObject.GetComponent<Properties>().isRevealed == true && menuOpen == false) {
-				//Debug.Log("Object Hit: ", GameObject.Find(hit.collider.gameObject.name));
-				canvas.SetActive(true);
-				menuOpen = true;
 				Camera.main.GetComponent<CameraFocus>().SetFocus(hit.collider.gameObject);
+
+				//If the camera isn't close enough, zoom to the appropriate level
+				if (gameObject.GetComponent<CameraBehaviour2D>().zoomLevel > zoomThreshold + 0.1f) {
+					gameObject.GetComponent<CameraBehaviour2D>().zoomLevel = zoomThreshold;
+				}
+				else {
+					//If sure, zoom to the correct level and open the menu
+					gameObject.GetComponent<CameraBehaviour2D>().zoomLevel = zoomThreshold;
+					canvas.SetActive(true);
+					menuOpen = true;
+				}
+				
+				
 			}
 		}
 	}
