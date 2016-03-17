@@ -31,6 +31,7 @@ public class BoardManager : MonoBehaviour {
 	
 	}
 
+
 	//Check if the passed in move is valid
 	public bool ValidateMove(int x, int y) {
 
@@ -52,6 +53,7 @@ public class BoardManager : MonoBehaviour {
 		}
 	}
 
+
 	//Return a list of all objects on a tile, and see if the property isPassable is true.
 	public int PassableCheck(int x, int y) {
 		int count = 0;
@@ -66,5 +68,22 @@ public class BoardManager : MonoBehaviour {
 		}
 
 		return count;
+	}
+
+
+	//Returns a list of all game objects to then be filtered using another behaviour.
+	//This finds all objects in a square with NO FILTERING OF TAGS. If you need to find specific tagged objects, use or create another public method.
+	public List<GameObject> RetrieveObjects(int x, int y) {
+
+		List<GameObject> objects = new List<GameObject>();
+
+		var collisions = Physics2D.LinecastAll(new Vector2(x - 0.25f, y - 0.25f), new Vector2(x + 0.25f, y + 0.25f));
+
+		foreach (var collision in collisions) {
+			objects.Add(collision.collider.gameObject);
+		}
+
+
+		return objects;
 	}
 }

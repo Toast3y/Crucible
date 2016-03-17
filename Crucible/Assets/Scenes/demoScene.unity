@@ -308,7 +308,8 @@ MonoBehaviour:
   lowerBound: {x: 0, y: 0}
   upperHeightBound: 0
   lowerHeightBound: 0
-  panSpeed: 0.4
+  panSpeed: 0.15
+  zoomLevel: 0
 --- !u!81 &1751954583
 AudioListener:
   m_ObjectHideFlags: 0
@@ -475,6 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 193170210}
+  zoomThreshold: 5
 --- !u!1 &2107329109
 GameObject:
   m_ObjectHideFlags: 0

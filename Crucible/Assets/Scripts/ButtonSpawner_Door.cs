@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 
-public class ButtonSpawner_Door : MonoBehaviour {
+public class ButtonSpawner_Door : ButtonSpawner {
 	//ButtonSpawner Edited to return one of two buttons based on a host objects given state.
 
 	public GameObject openDoor_Button;
@@ -17,7 +16,7 @@ public class ButtonSpawner_Door : MonoBehaviour {
 
 	}
 
-	public GameObject FetchButtons() {
+	new public GameObject FetchButtons() {
 
 		if (gameObject.GetComponent<DoorBehaviour>().GetIsOpen() == true) {
 			return closeDoor_Button;

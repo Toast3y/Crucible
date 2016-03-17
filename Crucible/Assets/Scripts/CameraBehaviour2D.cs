@@ -34,7 +34,7 @@ public class CameraBehaviour2D : MonoBehaviour {
 		upperHeightBound = 8.0f;
 		lowerHeightBound = 3.0f;
 		zoomLevel = Camera.main.orthographicSize;
-		panSpeed = 0.25f;
+		panSpeed = 0.15f;
 	}
 	
 	// Update is called once per frame
@@ -65,19 +65,21 @@ public class CameraBehaviour2D : MonoBehaviour {
 		 *
 		 *If the right mouse button is held down, and the mouse is moved, pan the camera across the scene.
 		 *Establish the end position and lerp to it? Might be too clunky for camera. Possibly use velocity to push the camera by force?
+		 *
+		 *The effect is to try and keep the cursor in the same position, and have it drag the map around.
 		 */
 
 		if (Input.GetMouseButton(1) == true && gameObject.GetComponent<OnClickMenu>().GetMenuOpen() != true) {
 			Camera.main.GetComponent<CameraFocus>().UnFocus();
 
-			//If mouse moves right, move camera right, if camera moves left, move camera left
+			//If mouse moves right, move camera right, if camera moves left, move camera right.
 			if (Input.GetAxis("Mouse X") != 0) {
-				Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + (Input.GetAxis("Mouse X") * panSpeed), Camera.main.transform.position.y, -5);
+				Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - (Input.GetAxis("Mouse X") * panSpeed), Camera.main.transform.position.y, -5);
 			}
 
 			//If mouse moves up, move camera up, if mouse moves down, move camera down
 			if (Input.GetAxis("Mouse Y") != 0) {
-				Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y + (Input.GetAxis("Mouse Y") * panSpeed), -5);
+				Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y - (Input.GetAxis("Mouse Y") * panSpeed), -5);
 			}
 
 			
