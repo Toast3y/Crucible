@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MapScript_NAME : MonoBehaviour {
+public class MapScript_NAME : MapScript {
 
 
 	//Template class used to create procedural map scripting objects
@@ -60,7 +60,7 @@ public class MapScript_NAME : MonoBehaviour {
 
 	}
 
-	public void GenerateMap(int mapWidth, int mapHeight, int MAX_ROOMS) {
+	public override void GenerateMap(int mapWidth, int mapHeight, int MAX_ROOMS) {
 		//Generate the map and all objects as required by the board manager
 
 		for (int i = 0; i < MAX_ROOMS; i++) {
@@ -120,6 +120,9 @@ public class MapScript_NAME : MonoBehaviour {
 			}
 
 		}
+
+		//Generate the walls of the dungeon.
+		GenerateWalls(mapWidth, mapHeight);
 		
 	}
 

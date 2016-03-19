@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class ButtonSpawner_Door : ButtonSpawner {
 	//ButtonSpawner Edited to return one of two buttons based on a host objects given state.
@@ -16,13 +17,18 @@ public class ButtonSpawner_Door : ButtonSpawner {
 
 	}
 
-	new public GameObject FetchButtons() {
+	public override List<GameObject> FetchButtons() {
+
+		List<GameObject> buttons = new List<GameObject>();
 
 		if (gameObject.GetComponent<DoorBehaviour>().GetIsOpen() == true) {
-			return closeDoor_Button;
+
+			buttons.Add(closeDoor_Button);
+			return buttons;
 		}
 		else {
-			return openDoor_Button;
+			buttons.Add(openDoor_Button);
+			return buttons;
 		}
 
 	}

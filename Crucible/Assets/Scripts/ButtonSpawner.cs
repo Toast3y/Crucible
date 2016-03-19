@@ -17,7 +17,7 @@ public class ButtonSpawner : MonoBehaviour {
 	
 	}
 
-	public List<GameObject> FetchButtons() {
+	public virtual List<GameObject> FetchButtons() {
 		return buttons;
 	}
 }

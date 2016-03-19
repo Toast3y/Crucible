@@ -17,13 +17,12 @@ public class BoardManager : MonoBehaviour {
 	public List<GameObject> characterList = new List<GameObject>();
 	public List<GameObject> objectList = new List<GameObject>();
 
-	private MapScript_NAME mapScript;
+	private MapScript mapScript;
 
 	// Use this for initialization
 	void Start () {
-		mapScript = gameObject.GetComponent<MapScript_NAME>();
+		mapScript = gameObject.GetComponent<MapScript>();
 		mapScript.GenerateMap(MAP_WIDTH, MAP_HEIGHT, MAX_ROOMS);
-		mapScript.GenerateWalls(MAP_WIDTH, MAP_HEIGHT);
 	}
 	
 	// Update is called once per frame
@@ -54,15 +53,16 @@ public class BoardManager : MonoBehaviour {
 	}
 
 
-	//Return a list of all objects on a tile, and see if the property isPassable is true.
+	//Find a list of all objects on a tile, and see if the property isPassable is true.
+	//Returns 0 if passable, greaten than if not.
 	public int PassableCheck(int x, int y) {
 		int count = 0;
 
 		//Cast a line on the coordinates given
-		var collisions = Physics2D.LinecastAll(new Vector2(x - 0.25f, y - 0.25f), new Vector2(x + 0.25f, y + 0.25f));
+		var collisions = RetrieveObjects(x, y);
 
 		foreach (var collision in collisions) {
-			if (collision.collider.gameObject.GetComponent<Properties>().GetIsPassable() == false) {
+			if (collision.GetComponent<Properties>().GetIsPassable() == false) {
 				count++;
 			}
 		}
@@ -85,5 +85,29 @@ public class BoardManager : MonoBehaviour {
 
 
 		return objects;
+	}
+
+
+	//Finds the buttonspawner objects in the square given
+	public virtual List<GameObject> RetrieveButtons(int x, int y) {
+
+		List<GameObject> buttons = new List<GameObject>();
+
+		var buttonObjects = RetrieveObjects(x, y);
+		
+		foreach(var objectFound in buttonObjects){
+
+			//Act only if a Buttonspawner component is found.
+			if (objectFound.GetComponent<ButtonSpawner>() != null) {
+				var buttonList = objectFound.GetComponent<ButtonSpawner>().FetchButtons();
+
+				foreach (var button in buttonList) {
+					buttons.Add(button);
+				}
+			}
+
+		}
+
+		return buttons;
 	}
 }

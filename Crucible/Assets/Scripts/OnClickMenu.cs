@@ -33,6 +33,7 @@ public class OnClickMenu : MonoBehaviour {
 					//If sure, zoom to the correct level and open the menu
 					gameObject.GetComponent<CameraBehaviour2D>().zoomLevel = zoomThreshold;
 					canvas.SetActive(true);
+					canvas.GetComponent<GenerateMenu>().AssembleMenu((int)hit.collider.gameObject.transform.position.x, (int)hit.collider.gameObject.transform.position.y);
 					menuOpen = true;
 				}
 				
@@ -44,6 +45,7 @@ public class OnClickMenu : MonoBehaviour {
 	public void SwitchMenuOff() {
 		//Disable the menu when called
 		menuOpen = false;
+		canvas.GetComponent<GenerateMenu>().DisassembleMenu();
 		canvas.SetActive(false);
 	}
 
