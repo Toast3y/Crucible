@@ -13,7 +13,7 @@ public class CameraFocus : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//cameraIsFocused = false;
+		
 	}
 	
 	// Update is called once per frame
@@ -27,15 +27,11 @@ public class CameraFocus : MonoBehaviour {
 
 	public void SetFocus(GameObject gameObject) {
 		cameraFocus = gameObject;
-		//cameraIsFocused = true;
 	}
 
 	public void UnFocus() {
 		cameraFocus = null;
-		//cameraIsFocused = false;
 	}
 
-	//public void SetFocus_OnClickMenu(GameObject gameObject) {
-		//Set the camera focus correctly when the menu is created
-	//}
+	
 }

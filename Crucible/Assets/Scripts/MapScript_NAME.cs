@@ -29,8 +29,6 @@ public class MapScript_NAME : MapScript {
 	[Header("Decorations")]
 	public GameObject door;
 
-
-
 	// Use this for initialization
 	void Start() {
 		/*
@@ -60,10 +58,10 @@ public class MapScript_NAME : MapScript {
 
 	}
 
-	public override void GenerateMap(int mapWidth, int mapHeight, int MAX_ROOMS) {
+	public override void GenerateMap(int mapWidth, int mapHeight, int maxRooms) {
 		//Generate the map and all objects as required by the board manager
 
-		for (int i = 0; i < MAX_ROOMS; i++) {
+		for (int i = 0; i < maxRooms; i++) {
 
 			//Determine the width and height of the rooms
 			int roomWidth = Random.Range(minRoomWidth, maxRoomWidth);
@@ -269,6 +267,7 @@ public class MapScript_NAME : MapScript {
 			//If the container tile already has a tile in it, don't place a new one.
 			if (gameObject.GetComponent<BoardManager>().map[x + Mathf.Min(x1, x2), y] != null) {
 				//Do nothing, as a tile already exists
+				//Trigger a flag to spawn a new door
 			}
 			else {
 				//Create a new tile at that position
@@ -295,5 +294,13 @@ public class MapScript_NAME : MapScript {
 			}
 		}
 
+	}
+
+
+
+	//Create a door at the entrance to each room, and rotate it properly.
+	private void CreateDoor(int x, int y) {
+		var newdoor = (GameObject)GameObject.Instantiate(door, new Vector3(x, y, 0), Quaternion.identity);
+		gameObject.GetComponent<BoardManager>().objectList.Add(newdoor);
 	}
 }

@@ -29,6 +29,14 @@ public class DoorBehaviour : MonoBehaviour {
 	
 	}
 
+	public void OpenDoor() {
+		SetIsOpen(true);
+	}
+
+	public void CloseDoor() {
+		SetIsOpen(false);
+	}
+
 	public bool GetIsOpen() {
 		return isOpen;
 	}
@@ -44,14 +52,14 @@ public class DoorBehaviour : MonoBehaviour {
 			objectProperties.SetIsPassable(true);
 			lightBehaviour.lightSprite = door_Open_Light;
 			lightBehaviour.darkSprite = door_Open_Dark;
-
+			lightBehaviour.ForceUpdate();
 		}
 		else if (IsOpen == false) {
 			//Set the properties to close the door
 			objectProperties.SetIsPassable(false);
 			lightBehaviour.lightSprite = door_Closed_Light;
 			lightBehaviour.darkSprite = door_Closed_Dark;
-
+			lightBehaviour.ForceUpdate();
 		}
 		else {
 			//Edge case, if the door state is set to null, simply close it

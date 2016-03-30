@@ -115,8 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d352e7a310d06ea40adcfa559e4f1516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openDoor_Button: {fileID: 0}
-  closeDoor_Button: {fileID: 0}
+  buttons: []
+  openDoor_Button: {fileID: 114564, guid: 006c5b7d72801734e8f04654dcf8966f, type: 2}
+  closeDoor_Button: {fileID: 198166, guid: e7799c147f6869e44a37443bf3955947, type: 2}
 --- !u!114 &11439312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,6 +228,18 @@ Prefab:
       propertyPath: isPassable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: openDoor_Button
+      value: 
+      objectReference: {fileID: 114564, guid: 006c5b7d72801734e8f04654dcf8966f, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: closeDoor_Button
+      value: 
+      objectReference: {fileID: 198166, guid: e7799c147f6869e44a37443bf3955947, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 133576}

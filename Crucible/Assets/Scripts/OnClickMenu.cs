@@ -32,9 +32,13 @@ public class OnClickMenu : MonoBehaviour {
 				else {
 					//If sure, zoom to the correct level and open the menu
 					gameObject.GetComponent<CameraBehaviour2D>().zoomLevel = zoomThreshold;
-					canvas.SetActive(true);
-					canvas.GetComponent<GenerateMenu>().AssembleMenu((int)hit.collider.gameObject.transform.position.x, (int)hit.collider.gameObject.transform.position.y);
-					menuOpen = true;
+
+					if (canvas != null) {
+						canvas.SetActive(true);
+						canvas.GetComponent<GenerateMenu>().AssembleMenu((int)hit.collider.gameObject.transform.position.x, (int)hit.collider.gameObject.transform.position.y);
+						menuOpen = true;
+					}
+					
 				}
 				
 				

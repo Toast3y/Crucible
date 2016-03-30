@@ -47,4 +47,14 @@ public class SetLight : MonoBehaviour {
 		this.gameObject.GetComponent<SpriteRenderer>().sprite = darkSprite;
 		lit = false;
 	}
+
+	//Force the sprite to update if needed. Used when swapping sprites
+	public void ForceUpdate() {
+		if (lit == true) {
+			LightUp();
+		}
+		else if (lit == false) {
+			GoDark();
+		}
+	}
 }
