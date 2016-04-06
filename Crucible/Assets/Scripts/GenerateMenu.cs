@@ -67,24 +67,34 @@ public class GenerateMenu : MonoBehaviour {
 		//Switch statements in C# do not cascade naturally. You have to use a goto to go to each next statement.
 		//
 
-		switch (buttons.Count) {
+		foreach (var button in buttons) {
+			button.transform.localPosition = canvasPosition5;
+		}
+
+		/*switch (buttons.Count) {
 			case 0:
 				break;
 			case 6:
-				
+				for (int i = 0; i < buttons.Count; i++) {
+
+				}
                 break;
 			case 5:
 
+				break;
 			case 4:
 
+				break;
 			case 3:
 
+				break;
 			case 2:
 
+				break;
 			case 1:
 
 				break;
-		};
+		};*/
 	}
 
 

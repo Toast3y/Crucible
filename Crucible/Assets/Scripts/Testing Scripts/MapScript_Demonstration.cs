@@ -23,6 +23,10 @@ public class MapScript_Demonstration : MapScript {
 	
 	}
 
+	public void WaitFrames() {
+
+	}
+
 
 
 	//Show the construction of each block and corridor over time.

@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e9eb3c008430e438486c6c696ff449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torchRange: 2.5
+  torchRange: 50
 --- !u!212 &21234080
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -125,7 +125,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: torchRange
-      value: 2.5
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
